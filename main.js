@@ -33,12 +33,12 @@ class SingleSite {
   constructor(site) {
 
     this.site = site;
-    this.sf;
-    this.marketo;
-    this.actOn;
-    this.clickDimensions;
-    this.pardot;
-    this.google;
+    this.sf = false;
+    this.marketo = false;
+    this.actOn = false;
+    this.clickDimensions = false;
+    this.pardot = false;
+    this.google = false;
 
     // API call to load website and then run script checks
     this.loadSite = axios.get(site)
