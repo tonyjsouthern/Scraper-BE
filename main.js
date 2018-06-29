@@ -24,7 +24,7 @@ class SingleSite {
     // API call to load website and then run script checks
     this.loadSite = axios.get(site)
       .then(response => {
-        var data = response
+        var data = response;
         this.checkSF(data);
         this.checkMarketo(data);
         this.CheckActon(data);
@@ -37,7 +37,7 @@ class SingleSite {
       });
 
     // Check for Salesfusion tracking script
-    this.checkSF = function (res) {
+    this.checkSF = function(res) {
       var data = res.data;
       console.log("SF Check running");
       if (data.indexOf("sf_config") != -1 || data.indexOf("frt(") != -1) {
@@ -46,7 +46,7 @@ class SingleSite {
     }
 
     // Check for Marketo Tracking script
-    this.checkMarketo = function (res) {
+    this.checkMarketo = function(res) {
       var data = res.data;
       console.log("Marketo check running");
       if (data.indexOf('munchkin') != -1) {
@@ -55,11 +55,11 @@ class SingleSite {
     }
 
     // Check for Acton Tracking Script
-    this.CheckActon = function (res) {
+    this.CheckActon = function(res) {
       var data = res.data;
       console.log("ActOn check running");
       if (data.indexOf('acton') != -1) {
-      this.actOn = true;
+        this.actOn = true;
       }
     }
 
@@ -94,7 +94,6 @@ class SingleSite {
   }
 }
 
-
 // rewrite this so that it takes the domain as a URL parmeter instead of a hard defined variable called domain
 app.post("/single-domain", function(req, res) {
   let domain = req.body.domain;
@@ -106,7 +105,6 @@ app.post("/single-domain", function(req, res) {
   }).then(function() {
     res.send(singleSite)
   })
-
 })
 
 app.listen(process.env.PORT || 5000)
