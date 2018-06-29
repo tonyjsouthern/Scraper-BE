@@ -1,0 +1,47 @@
+html {
+    background-color: #00d1b2 !important;
+    height: 100%;
+}
+
+body {
+  background-color: #00d1b2;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.is-bold {
+  font-weight: bold;
+}
+
+.cont {
+  margin: 20px auto;
+  width: 1000px;
+}
+
+.input-cont {
+  text-align: center;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+.button {
+margin-top: 10px;
+}
+
+
+.faq {
+  color: #209cee;
+  cursor: pointer;
+}
+
+.results-cont {
+  margin: 20px auto;
+  width: 1000px;
+}
