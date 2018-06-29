@@ -13,9 +13,11 @@ let results = {
 $('.submit').on("click", function () {
   value = $('.input').val();
   scriptCheck(value)
-console.log("running")
 })
 
+$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+});
 
 function scriptCheck (url) {
   axios.post('https://powerful-island-56445.herokuapp.com/single-domain/', {
@@ -23,7 +25,7 @@ function scriptCheck (url) {
 })
 .then(function (response) {
   return responseHandler(response);
-})
+  })
 }
 
 function responseHandler (response) {
@@ -35,21 +37,44 @@ function responseHandler (response) {
   results.marketo         = data.marketo;
   results.pardot          = data.pardot;
   results.sf              = data.sf;
-  console.log(results)
   $('.results-cont').removeClass("hidden")
   $('.results-cont').html(htmlTemplate())
+  checkTf();
+}
+
+function checkTf () {
+ $('.tf').each(function (){
+   if($(this).text() == 'true') {
+     $(this).addClass('true')
+   }else{
+     $(this).addClass('false')
+   }
+ })
 }
 
 function htmlTemplate () {
   return `
     <div class="results">
     <p class="title is-4">Website: ${results.site}</p>
-    <p><span class="is-bold">Act-On:</span> ${results.actOn}</p>
-    <p><span class="is-bold">Click Dimensions:</span> ${results.clickDimensions}</p>
-    <p><span class="is-bold">Google:</span> ${results.google}</p>
-    <p><span class="is-bold">Marketo:</span> ${results.marketo}</p>
-    <p><span class="is-bold">Pardot:</span> ${results.pardot}</p>
-    <p><span class="is-bold">Salesfusion:</span> ${results.sf}</p>
+    <div class="companies">
+      <p class="margin-bot"><span class="is-bold">Act-On:</span></p>
+      <p class="margin-bot"><span class="is-bold">Click Dimensions: </span></p>
+      <p class="margin-bot"><span class="is-bold">Google:</span></p>
+      <p class="margin-bot"><span class="is-bold">Marketo:</span></p>
+      <p class="margin-bot"><span class="is-bold">Pardot:</span></p>
+      <p class="margin-bot"><span class="is-bold">Salesfusion:</span></p>
+    </div>
+
+    <div class="values-cont">
+      <p class="tf">${results.actOn}</p>
+      <p class="tf">${results.clickDimensions}</p>
+      <p class="tf">${results.google}</p>
+      <p class="tf">${results.marketo}</p>
+      <p class="tf">${results.pardot}</p>
+      <p class="tf">${results.sf}</p>
+    </div>
+
+    </div>
   `
 }
 // http://iheartcamo.com
