@@ -9,14 +9,14 @@
 }
 
 html {
-    background-color: #00d1b2 !important;
+    background-color: #847bb9 !important;
     height: 100%;
 }
 
 
 
 body {
-  background-color: #00d1b2;
+  background-color: #847bb9;
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
@@ -71,7 +71,7 @@ margin-top: 10px;
 
 
 .faq {
-  color: #209cee;
+  color: #00c4a7;
   cursor: pointer;
 }
 
@@ -134,4 +134,8 @@ ol {
 
 p.title.is-5 {
   margin-bottom: 2px !important;
+}
+
+header.modal-card-head {
+  background-color: #00d1b2 !important;
 }
