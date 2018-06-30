@@ -11,9 +11,17 @@ let results = {
   hubspot: ''
 }
 
-$('.submit').on("click", function () {
-  value = $('.input').val();
-  scriptCheck(value)
+$('.submit').on("click", function() {
+  let url = $('.input').val();
+  if (url.indexOf("https") != -1) {
+    var adjUrl = "http" + url.slice(5)
+    scriptCheck(adjUrl);
+  } else if (url.indexOf("http") != -1) {
+    scriptCheck(url);
+  } else {
+    var adjUrl = "http://" + url
+    scriptCheck(adjUrl)
+  }
 })
 
 $('form').submit(function (evt) {
