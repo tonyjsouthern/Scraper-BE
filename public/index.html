@@ -1,68 +1,114 @@
 <!doctype html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Scraper FE</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>scraper fe</title>
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <!-- endbuild -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 
-  </head>
-  <body>
-    <!--[if IE]>
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <!-- endbuild -->
+
+</head>
+
+<body>
+  <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="box cont">
-
-      <div class="input-cont">
-        <p class="faq">View our F.A.Q.</p>
-
-        <form>
-        <p class="title is-4"> Enter your website URL below:</p>
+  <div class="box cont">
+    <div class="input-cont">
+      <form>
+        <p class="title title-margin is-4"> Enter a website URL:</p>
         <input class="input" placeholder="http://www.google.com">
-        <p>NOTE: The input URL must contain the http prefix or https prefix</p>
+        <p class="margin-top">NOTE: The input URL must contain the http prefix or https prefix</p>
         <button class="button submit is-primary">Submit</button>
       </form>
-      </div>
     </div>
+  </div>
 
-    <div class="hidden results-cont box">
+  <div class="results-cont box">
+    <div class="centered">
+      <p class="title is-4">What am I looking at?</p>
+      <p> This application takes in a URL and loads the website. It then scans the entire website for key words included in common tracking scripts and returns true or false values.</p>
+      <p><br>For more information click <span class="faq">here</span> to view our F.A.Q.</p>
     </div>
+  </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">F.A.Q.</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <p class="title is-5">What does this application do?</p>
+        <p> This application takes a given website and checks to see if the following companies tracking scripts are present. If a tracking script is found a "true" value will be returned, otherwise the value will default to false. </p>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
+      <ol>
+        <li>Salesfusion</li>
+        <li>Marketo </li>
+        <li>ActOn </li>
+        <li>Google </li>
+        <li>Click Dimensions</li>
+        <li>Pardot </li>
+        <li>Hubspot</li>
+      </ol>
 
-    <!-- endbower -->
-    <!-- endbuild -->
+      <p class="title is-5">How does this application check for tracking scripts?</p>
+      <p class="margin-bot-15"> This application uses http and https methods to load a websites HTML. It then scans the entire websites HTMl for common keywords found in tracking scripts.
 
-    <!-- build:js scripts/main.js -->
-    <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-    <!-- endbuild -->
-  </body>
+      <p class="title is-5">How can I suggest a tracking script check be added?</p>
+      <p class="margin-bot-15"> You can contact tonyjsouthern@gmail.com with the tracking script you would like to be added. This will be considered and possible added. If it is added I will reach out and let you know.</p>
+
+      <p class="title is-5">How throrough is this application?</p>
+      <p class"margin-bot-15"> This application only checks the websites static HTML. It is possible through some vendors to inject the scripts, if this is the case, this application will read false.</p>
+
+      </section>
+    </div>
+  </div>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function(b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l;
+      b[l] || (b[l] =
+        function() {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+      b[l].l = +new Date;
+      e = o.createElement(i);
+      r = o.getElementsByTagName(i)[0];
+      e.src = 'https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <!-- endbuild -->
+</body>
+
 </html>

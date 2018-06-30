@@ -50,13 +50,18 @@ body {
 .cont {
   margin: 20px auto;
   width: 1000px;
+  text-align: center;
 }
 
 .input-cont {
   text-align: center;
 }
 
-.title {
+input {
+  width: 75% !important;
+}
+
+.title-margin {
   margin-top: 10px;
 }
 
@@ -103,4 +108,30 @@ margin-top: 10px;
 
 .margin-bot {
   margin-bottom: 2px;
+}
+
+.margin-bot-15 {
+  margin-bottom: 15px;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.centered {
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+ol {
+  margin: 5px 0px 15px 25px!important;
+}
+
+.modal-card {
+  width: 800px !important;
+}
+
+p.title.is-5 {
+  margin-bottom: 2px !important;
 }

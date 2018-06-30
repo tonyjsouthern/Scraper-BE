@@ -7,7 +7,8 @@ let results = {
   google: '',
   marketo: '',
   pardot: '',
-  sf: ''
+  sf: '',
+  hubspot: ''
 }
 
 $('.submit').on("click", function () {
@@ -37,7 +38,7 @@ function responseHandler (response) {
   results.marketo         = data.marketo;
   results.pardot          = data.pardot;
   results.sf              = data.sf;
-  $('.results-cont').removeClass("hidden")
+  results.hubspot         = data.hubspot;
   $('.results-cont').html(htmlTemplate())
   checkTf();
 }
@@ -63,6 +64,7 @@ function htmlTemplate () {
       <p class="margin-bot"><span class="is-bold">Marketo:</span></p>
       <p class="margin-bot"><span class="is-bold">Pardot:</span></p>
       <p class="margin-bot"><span class="is-bold">Salesfusion:</span></p>
+      <p class="margin-bot"><span class="is-bold">Hubspot:</span></p>
     </div>
 
     <div class="values-cont">
@@ -72,9 +74,25 @@ function htmlTemplate () {
       <p class="tf">${results.marketo}</p>
       <p class="tf">${results.pardot}</p>
       <p class="tf">${results.sf}</p>
+      <p class="tf">${results.hubspot}</p>
     </div>
 
     </div>
   `
 }
 // http://iheartcamo.com
+
+
+// FAQ activation
+
+$('.faq').on("click", function () {
+  $('.modal').addClass("is-active");
+})
+
+$('.modal-background').on("click", function () {
+  $('.modal').removeClass("is-active");
+})
+
+$('.delete').on("click", function () {
+  $('.modal').removeClass("is-active");
+})
