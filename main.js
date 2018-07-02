@@ -34,6 +34,7 @@ class SingleSite {
     this.pardot = false;
     this.google = false;
     this.hubspot = false;
+    this.googleTag = false;
 
     // API call to load website and then run script checks
     this.loadSite = axios.get(site)
@@ -46,6 +47,7 @@ class SingleSite {
         this.checkPardot(data);
         this.checkGoogle(data);
         this.checkHubspot(data);
+        this.checkGoogleTag(data);
       })
       .catch(error => {
         console.log(error);
@@ -113,6 +115,13 @@ class SingleSite {
       }
     }
 
+    this.checkGoogleTag = function(res) {
+      var data = res.data;
+      console.log("GoogleTag check running...");
+      if (data.indexOf('googletag') != -1) {
+        this.googleTag = true;
+      }
+    }
     // end cass
   }
 }
@@ -131,4 +140,4 @@ app.post("/single-domain", function(req, res) {
 
 
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 6000)
