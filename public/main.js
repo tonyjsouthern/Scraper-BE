@@ -87,7 +87,7 @@ function htmlTemplate() {
       <p class="tf">${results.googleTag}</p>
     </div>
 
-    <p class="margin-top"><span class="bold">NOTE:</span> If injectors is true script read-outs may default to a false value. This indicates the customer is using a script injector such as Google Tag Manger. If this is the case we cannot accurately determine what scrupts the website is running.</p>
+    <p class="margin-top"><span class="bold">NOTE:</span> If injectors is true script read-outs may default to a false value. This indicates the customer is using a script injector such as Google Tag Manger. If this is the case we cannot accurately determine what scripts the website is running.</p>
 
     </div>
   `
