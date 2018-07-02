@@ -1,5 +1,3 @@
-let value;
-
 let results = {
   site: '',
   actOn: '',
@@ -8,7 +6,8 @@ let results = {
   marketo: '',
   pardot: '',
   sf: '',
-  hubspot: ''
+  hubspot: '',
+  googleTag: '',
 }
 
 $('.submit').on("click", function() {
@@ -24,44 +23,45 @@ $('.submit').on("click", function() {
   }
 })
 
-$('form').submit(function (evt) {
-   evt.preventDefault(); //prevents the default action
+$('form').submit(function(evt) {
+  evt.preventDefault(); //prevents the default action
 });
 
-function scriptCheck (url) {
+function scriptCheck(url) {
   axios.post('https://powerful-island-56445.herokuapp.com/single-domain/', {
-  domain: url
-})
-.then(function (response) {
-  return responseHandler(response);
-  })
+      domain: url
+    })
+    .then(function(response) {
+      return responseHandler(response);
+    })
 }
 
-function responseHandler (response) {
-  var data                = response.data;
-  results.site            = data.site;
-  results.actOn           = data.actOn;
+function responseHandler(response) {
+  var data = response.data;
+  results.site = data.site;
+  results.actOn = data.actOn;
   results.clickDimensions = data.clickDimensions;
-  results.google          = data.google;
-  results.marketo         = data.marketo;
-  results.pardot          = data.pardot;
-  results.sf              = data.sf;
-  results.hubspot         = data.hubspot;
+  results.google = data.google;
+  results.marketo = data.marketo;
+  results.pardot = data.pardot;
+  results.sf = data.sf;
+  results.hubspot = data.hubspot;
+  results.googleTag = data.googleTag;
   $('.results-cont').html(htmlTemplate())
   checkTf();
 }
 
-function checkTf () {
- $('.tf').each(function (){
-   if($(this).text() == 'true') {
-     $(this).addClass('true')
-   }else{
-     $(this).addClass('false')
-   }
- })
+function checkTf() {
+  $('.tf').each(function() {
+    if ($(this).text() == 'true') {
+      $(this).addClass('true')
+    } else {
+      $(this).addClass('false')
+    }
+  })
 }
 
-function htmlTemplate () {
+function htmlTemplate() {
   return `
     <div class="results">
     <p class="title is-4">Website: ${results.site}</p>
@@ -73,6 +73,7 @@ function htmlTemplate () {
       <p class="margin-bot"><span class="is-bold">Pardot:</span></p>
       <p class="margin-bot"><span class="is-bold">Salesfusion:</span></p>
       <p class="margin-bot"><span class="is-bold">Hubspot:</span></p>
+      <p class="margin-bot"><span class="is-bold">Injectors:</span></p>
     </div>
 
     <div class="values-cont">
@@ -83,24 +84,25 @@ function htmlTemplate () {
       <p class="tf">${results.pardot}</p>
       <p class="tf">${results.sf}</p>
       <p class="tf">${results.hubspot}</p>
+      <p class="tf">${results.googleTag}</p>
     </div>
+
+    <p class="margin-top"><span class="bold">NOTE:</span> If injectors is true script read-outs may default to a false value. This indicates the customer is using a script injector such as Google Tag Manger. If this is the case we cannot accurately determine what scrupts the website is running.</p>
 
     </div>
   `
 }
-// http://iheartcamo.com
-
 
 // FAQ activation
 
-$('.faq').on("click", function () {
+$('.faq').on("click", function() {
   $('.modal').addClass("is-active");
 })
 
-$('.modal-background').on("click", function () {
+$('.modal-background').on("click", function() {
   $('.modal').removeClass("is-active");
 })
 
-$('.delete').on("click", function () {
+$('.delete').on("click", function() {
   $('.modal').removeClass("is-active");
 })
