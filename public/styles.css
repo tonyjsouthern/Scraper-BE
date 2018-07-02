@@ -9,14 +9,14 @@
 }
 
 html {
-    background-color: #847bb9 !important;
+    background-color: #ff6600 !important;
     height: 100%;
 }
 
 
 
 body {
-  background-color: #847bb9;
+  background-color: #ff6600;
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
@@ -47,6 +47,11 @@ body {
   margin-bottom: 2px !important;
 }
 
+.button.submit {
+  background-color: #0066ff !important;
+  color: white;
+}
+
 .cont {
   margin: 20px auto;
   width: 1000px;
@@ -71,7 +76,7 @@ margin-top: 10px;
 
 
 .faq {
-  color: #00c4a7;
+  color: #0066ff;
   cursor: pointer;
 }
 
@@ -137,5 +142,5 @@ p.title.is-5 {
 }
 
 header.modal-card-head {
-  background-color: #00d1b2 !important;
+  background-color: #0066ff !important;
 }
