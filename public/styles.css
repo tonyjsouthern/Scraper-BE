@@ -9,14 +9,14 @@
 }
 
 html {
-    background-color: #ff8533 !important;
+    background: linear-gradient(135deg, #0066ff, #ff8533) !important;
     height: 100%;
 }
 
 
 
 body {
-  background-color: #ff8533;
+
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
@@ -53,8 +53,7 @@ body {
 }
 
 .cont {
-  margin: 20px auto;
-  width: 1000px;
+  margin: 20px auto !important;
   text-align: center;
 }
 
@@ -82,7 +81,6 @@ margin-top: 10px;
 
 .results-cont {
   margin: 20px auto;
-  width: 1000px;
 }
 
 .false {
@@ -143,4 +141,23 @@ p.title.is-5 {
 
 header.modal-card-head {
   background-color: #0066ff !important;
+}
+
+.modal-card-title {
+  color: white !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .results-cont {
+    margin: 5px !important;
+  }
+
+  .cont {
+    margin: 5px !important;
+    text-align: center;
+  }
+
+  .text-padding: {
+
+  }
 }
