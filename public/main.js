@@ -31,6 +31,10 @@ function scriptCheck(url) {
   axios.post('https://powerful-island-56445.herokuapp.com/single-domain/', {
       domain: url
     })
+    .catch(function (error) {
+    // handle error
+      alert(error);
+    })
     .then(function(response) {
       return responseHandler(response);
     })
